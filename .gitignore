@@ -1,0 +1,54 @@
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.bak
+
+# Node
+node_modules/
+npm-debug.log*
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+
+# Java
+*.class
+*.jar
+target/
+
+# Build artifacts
+*.o
+*.so
+*.dylib
+
+# Logs
+*.log
+logs/
+
+# Temp files
+*.tmp
+*.temp
+.cache/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Generated files
+coverage/
+.coverage
+htmlcov/

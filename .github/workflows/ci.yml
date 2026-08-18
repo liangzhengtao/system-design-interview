@@ -1,0 +1,153 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    name: Lint Markdown
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install markdownlint
+        run: npm install -g markdownlint-cli
+
+      - name: Run markdownlint
+        run: markdownlint '**/*.md' --ignore node_modules
+
+  link-check:
+    name: Check Links
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Check internal links
+        uses: lycheeverse/lychee-action@v1
+        with:
+          args: --verbose --no-progress './**/*.md'
+          fail: false
+
+  structure:
+    name: Validate Structure
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Check required files exist
+        run: |
+          echo "Checking required files..."
+          files=(
+            "README.md"
+            "LICENSE"
+            "CONTRIBUTING.md"
+            "CODE_OF_CONDUCT.md"
+            "SECURITY.md"
+            "CHANGELOG.md"
+            "concepts/fundamentals.md"
+            "concepts/load-balancing.md"
+            "concepts/caching.md"
+            "concepts/database-design.md"
+            "concepts/message-queues.md"
+            "designs/url-shortener.md"
+            "designs/chat-system.md"
+            "designs/news-feed.md"
+            "designs/search-engine.md"
+            "designs/distributed-cache.md"
+          )
+
+          missing=0
+          for file in "${files[@]}"; do
+            if [ -f "$file" ]; then
+              echo "  ✓ $file"
+            else
+              echo "  ✗ $file (MISSING)"
+              missing=$((missing + 1))
+            fi
+          done
+
+          if [ $missing -gt 0 ]; then
+            echo ""
+            echo "ERROR: $missing required file(s) missing!"
+            exit 1
+          fi
+
+          echo ""
+          echo "All required files present."
+
+      - name: Check bilingual content
+        run: |
+          echo "Checking bilingual content..."
+          files=(
+            "concepts/fundamentals.md"
+            "concepts/load-balancing.md"
+            "concepts/caching.md"
+            "concepts/database-design.md"
+            "concepts/message-queues.md"
+            "designs/url-shortener.md"
+            "designs/chat-system.md"
+            "designs/news-feed.md"
+            "designs/search-engine.md"
+            "designs/distributed-cache.md"
+          )
+
+          missing_cn=0
+          for file in "${files[@]}"; do
+            if grep -q "中文版本" "$file" 2>/dev/null; then
+              echo "  ✓ $file (has 中文版本)"
+            else
+              echo "  ✗ $file (MISSING 中文版本)"
+              missing_cn=$((missing_cn + 1))
+            fi
+          done
+
+          if [ $missing_cn -gt 0 ]; then
+            echo ""
+            echo "WARNING: $missing_cn file(s) missing Chinese section"
+          fi
+
+      - name: Check minimum line count
+        run: |
+          echo "Checking minimum line count (200 lines)..."
+          files=(
+            "concepts/fundamentals.md"
+            "concepts/load-balancing.md"
+            "concepts/caching.md"
+            "concepts/database-design.md"
+            "concepts/message-queues.md"
+            "designs/url-shortener.md"
+            "designs/chat-system.md"
+            "designs/news-feed.md"
+            "designs/search-engine.md"
+            "designs/distributed-cache.md"
+          )
+
+          short=0
+          for file in "${files[@]}"; do
+            lines=$(wc -l < "$file" 2>/dev/null || echo 0)
+            if [ "$lines" -ge 200 ]; then
+              echo "  ✓ $file ($lines lines)"
+            else
+              echo "  ✗ $file ($lines lines, need 200+)"
+              short=$((short + 1))
+            fi
+          done
+
+          if [ $short -gt 0 ]; then
+            echo ""
+            echo "WARNING: $short file(s) below 200 lines"
+          fi
