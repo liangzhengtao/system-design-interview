@@ -7,56 +7,56 @@
 </div>
 
 
-# System Design Interview Guide
+# 시스템 디자인 인터뷰 가이드
 
-**Ace your system design interview. 10 concepts + 5 complete system designs with ASCII diagrams.**
+**시스템 디자인 인터뷰를 완벽 준비하세요. 10가지 개념 + 5개 완전한 시스템 디자인과 ASCII 다이어그램.**
 
 ---
 
 <p align="center">
-  <a href="#concepts">Concepts</a> •
-  <a href="#system-designs">System Designs</a> •
-  <a href="#how-to-use">How to Use</a> •
-  <a href="#contribute">Contribute</a>
+  <a href="#개념">개념</a> •
+  <a href="#시스템-디자인">시스템 디자인</a> •
+  <a href="#사용-방법">사용 방법</a> •
+  <a href="#기여하기">기여하기</a>
 </p>
 
 ---
 
-## Why This Guide?
+## 이 가이드를 선택해야 하는 이유
 
-System design interviews are the most challenging part of technical interviews at top companies. This guide provides:
+시스템 디자인 인터뷰는 대기업 기술 인터뷰에서 가장 도전적인 부분입니다. 이 가이드는 다음을 제공합니다:
 
-- **Structured framework** — Step-by-step approach to any design question
-- **ASCII diagrams** — Visual architecture that you can draw on a whiteboard
-- **Trade-off analysis** — Not just one answer, but multiple approaches with pros/cons
-- **Capacity estimation** — Real numbers to make your design concrete
-- **Bilingual content** — Every file has a complete Chinese version
-
----
-
-## Table of Contents
-
-- [Concepts](#concepts)
-- [System Designs](#system-designs)
-- [How to Use](#how-to-use)
-- [Contributing](#contribute)
-- [License](#license)
+- **구조화된 프레임워크** — 모든 설계 질문에 대한 단계별 접근법
+- **ASCII 다이어그램** — 화이트보드에 그릴 수 있는 시각적 아키텍처
+- **트레이드오프 분석** — 하나의 답이 아닌, 장단점을 포함한 여러 접근법
+- **용량 추정** — 설계를 구체화하기 위한 실제 수치
+- **이중 언어 콘텐츠** — 모든 파일에 완전한 중국어 버전 포함
 
 ---
 
-## Concepts
+## 목차
 
-Foundation knowledge you need before tackling system design questions.
+- [개념](#개념)
+- [시스템 디자인](#시스템-디자인)
+- [사용 방법](#사용-방법)
+- [기여하기](#기여-하기)
+- [라이선스](#라이선스)
 
-| # | Concept | Key Topics |
-|---|---------|------------|
-| 1 | [Fundamentals](concepts/fundamentals.md) | Scalability, CAP theorem, consistency models, latency vs throughput |
-| 2 | [Load Balancing](concepts/load-balancing.md) | L4/L7, round-robin, consistent hashing, health checks |
-| 3 | [Caching](concepts/caching.md) | Redis, CDN, browser cache, cache strategies, invalidation |
-| 4 | [Database Design](concepts/database-design.md) | SQL vs NoSQL, indexing, sharding, replication, ACID |
-| 5 | [Message Queues](concepts/message-queues.md) | Kafka, RabbitMQ, event-driven architecture, exactly-once |
+---
 
-### Concept Map
+## 개념
+
+시스템 디자인 문제를 다루기 전에 알아야 할 기초 지식입니다.
+
+| # | 개념 | 핵심 주제 |
+|---|------|----------|
+| 1 | [기초](concepts/fundamentals.md) | 확장성, CAP 정리, 일관성 모델, 대역폭 vs 처리량 |
+| 2 | [로드 밸런싱](concepts/load-balancing.md) | L4/L7, 라운드 로빈, 일관된 해싱, 상태 확인 |
+| 3 | [캐싱](concepts/caching.md) | Redis, CDN, 브라우저 캐시, 캐시 전략, 무효화 |
+| 4 | [데이터베이스 설계](concepts/database-design.md) | SQL vs NoSQL, 인덱싱, 샤딩, 복제, ACID |
+| 5 | [메시지 큐](concepts/message-queues.md) | Kafka, RabbitMQ, 이벤트 기반 아키텍처, 정확히 한 번 |
+
+### 개념 맵
 
 ```
                         ┌─────────────────────────┐
@@ -83,23 +83,23 @@ Foundation knowledge you need before tackling system design questions.
 
 ---
 
-## System Designs
+## 시스템 디자인
 
-Complete end-to-end solutions for popular system design interview questions.
+인기 있는 시스템 디자인 인터뷰 질문에 대한 완전한 end-to-end 솔루션입니다.
 
-| # | Design | Difficulty | Key Concepts |
-|---|--------|------------|--------------|
-| 1 | [URL Shortener](designs/url-shortener.md) | ⭐⭐ | Base62 encoding, hashing, redirect, analytics |
-| 2 | [Chat System](designs/chat-system.md) | ⭐⭐⭐ | WebSocket, message queue, presence, delivery |
-| 3 | [News Feed](designs/news-feed.md) | ⭐⭐⭐ | Fan-out, ranking, timeline, social graph |
-| 4 | [Search Engine](designs/search-engine.md) | ⭐⭐⭐⭐ | Inverted index, crawling, ranking, NLP |
-| 5 | [Distributed Cache](designs/distributed-cache.md) | ⭐⭐⭐⭐ | Consistent hashing, replication, eviction |
+| # | 디자인 | 난이도 | 핵심 개념 |
+|---|--------|--------|----------|
+| 1 | [URL 단축기](designs/url-shortener.md) | ⭐⭐ | Base62 인코딩, 해싱, 리다이렉트, 분석 |
+| 2 | [채팅 시스템](designs/chat-system.md) | ⭐⭐⭐ | WebSocket, 메시지 큐, 프레전스, 전달 |
+| 3 | [뉴스 피드](designs/news-feed.md) | ⭐⭐⭐ | 팬아웃, 랭킹, 타임라인, 소셜 그래프 |
+| 4 | [검색 엔진](designs/search-engine.md) | ⭐⭐⭐⭐ | 역인덱스, 크롤링, 랭킹, NLP |
+| 5 | [분산 캐시](designs/distributed-cache.md) | ⭐⭐⭐⭐ | 일관된 해싱, 복제, 축출 |
 
 ---
 
-## How to Use
+## 사용 방법
 
-### For Interview Preparation
+### 인터뷰 준비용
 
 ```
 Step 1: Read concepts/fundamentals.md to build your foundation
@@ -109,7 +109,7 @@ Step 4: Time yourself — aim for 45 minutes per design
 Step 5: Review trade-offs and practice explaining decisions
 ```
 
-### For Interview Day
+### 인터뷰 당일
 
 ```
 ┌─────────────────────────────────────────────────┐
@@ -129,9 +129,9 @@ Step 5: Review trade-offs and practice explaining decisions
 └─────────────────────────────────────────────────┘
 ```
 
-### The RESHADED Framework
+### RESHADED 프레임워크
 
-Each design in this guide follows the **RESHADED** framework:
+이 가이드의 각 디자인은 **RESHADED** 프레임워크를 따릅니다:
 
 ```
 R - Requirements       Requirements analysis
@@ -146,35 +146,35 @@ D - Distinctive component  Differentiating component
 
 ---
 
-## Roadmap
+## 로드맵
 
-- [x] 5 core concept files
-- [x] 5 complete system designs
-- [x] Bilingual content (English + Chinese)
-- [ ] 5 more designs (Rate Limiter, Notification System, Video Streaming, Web Crawler, Key-Value Store)
-- [ ] Anki flashcards for spaced repetition
-- [ ] Interactive diagrams
-
----
-
-## Contribute
-
-We welcome contributions! See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
+- [x] 5개 핵심 개념 파일
+- [x] 5개 완전한 시스템 디자인
+- [x] 이중 언어 콘텐츠 (영어 + 중국어)
+- [ ] 5개 추가 디자인 (Rate Limiter, Notification System, Video Streaming, Web Crawler, Key-Value Store)
+- [ ] Anki 플래시카드 (간격 반복학습)
+- [ ] 인터랙티브 다이어그램
 
 ---
 
-## Star History
+## 기여하기
 
-If you find this guide helpful, please give it a star!
+기여를 환영합니다! 자세한 내용은 [CONTRIBUTING.md](CONTRIBUTING.md)를 참조하세요.
 
 ---
 
-## License
+## 스타 히스토리
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+이 가이드가 유용하다고 생각되시면, 스타를 눌러주세요!
+
+---
+
+## 라이선스
+
+이 프로젝트는 MIT 라이선스에 따라 라이선스가 부여됩니다 - 자세한 내용은 [LICENSE](LICENSE) 파일을 참조하세요.
 
 ---
 
 <p align="center">
-  Made with ❤️ by <a href="https://github.com/liangzhengtao">liangzhengtao</a>
+  ❤️를 담아 <a href="https://github.com/liangzhengtao">liangzhengtao</a>가 만들었습니다
 </p>

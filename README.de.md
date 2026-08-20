@@ -7,56 +7,56 @@
 </div>
 
 
-# System Design Interview Guide
+# System Design Interview Leitfaden
 
-**Ace your system design interview. 10 concepts + 5 complete system designs with ASCII diagrams.**
+**Meistern Sie Ihr System Design Interview. 10 Konzepte + 5 vollständige Systemdesigns mit ASCII-Diagrammen.**
 
 ---
 
 <p align="center">
-  <a href="#concepts">Concepts</a> •
-  <a href="#system-designs">System Designs</a> •
-  <a href="#how-to-use">How to Use</a> •
-  <a href="#contribute">Contribute</a>
+  <a href="#konzepte">Konzepte</a> •
+  <a href="#systemdesigns">Systemdesigns</a> •
+  <a href="#verwendung">Verwendung</a> •
+  <a href="#mitwirken">Mitwirken</a>
 </p>
 
 ---
 
-## Why This Guide?
+## Warum dieser Leitfaden?
 
-System design interviews are the most challenging part of technical interviews at top companies. This guide provides:
+System-Design-Interviews sind der herausforderndste Teil technischer Interviews bei Top-Unternehmen. Dieser Leitfaden bietet:
 
-- **Structured framework** — Step-by-step approach to any design question
-- **ASCII diagrams** — Visual architecture that you can draw on a whiteboard
-- **Trade-off analysis** — Not just one answer, but multiple approaches with pros/cons
-- **Capacity estimation** — Real numbers to make your design concrete
-- **Bilingual content** — Every file has a complete Chinese version
-
----
-
-## Table of Contents
-
-- [Concepts](#concepts)
-- [System Designs](#system-designs)
-- [How to Use](#how-to-use)
-- [Contributing](#contribute)
-- [License](#license)
+- **Strukturierter Rahmen** — Schritt-für-Schritt-Ansatz für jede Designfrage
+- **ASCII-Diagramme** — Visuelle Architektur, die Sie an die Tafel zeichnen können
+- **Trade-off-Analyse** — Nicht nur eine Antwort, sondern mehrere Ansätze mit Vor- und Nachteilen
+- **Kapazitätsschätzung** — Reale Zahlen für konkrete Designs
+- **Zweisprachiger Inhalt** — Jede Datei enthält eine vollständige chinesische Version
 
 ---
 
-## Concepts
+## Inhaltsverzeichnis
 
-Foundation knowledge you need before tackling system design questions.
+- [Konzepte](#konzepte)
+- [Systemdesigns](#systemdesigns)
+- [Verwendung](#verwendung)
+- [Mitwirken](#mitwirken)
+- [Lizenz](#lizenz)
 
-| # | Concept | Key Topics |
-|---|---------|------------|
-| 1 | [Fundamentals](concepts/fundamentals.md) | Scalability, CAP theorem, consistency models, latency vs throughput |
-| 2 | [Load Balancing](concepts/load-balancing.md) | L4/L7, round-robin, consistent hashing, health checks |
-| 3 | [Caching](concepts/caching.md) | Redis, CDN, browser cache, cache strategies, invalidation |
-| 4 | [Database Design](concepts/database-design.md) | SQL vs NoSQL, indexing, sharding, replication, ACID |
-| 5 | [Message Queues](concepts/message-queues.md) | Kafka, RabbitMQ, event-driven architecture, exactly-once |
+---
 
-### Concept Map
+## Konzepte
+
+Grundwissen, das Sie vor der Bearbeitung von System-Design-Fragen benötigen.
+
+| # | Konzept | Kernthemen |
+|---|---------|-----------|
+| 1 | [Grundlagen](concepts/fundamentals.md) | Skalierbarkeit, CAP-Theorem, Konsistenzmodelle, Latenz vs Durchsatz |
+| 2 | [Load Balancing](concepts/load-balancing.md) | L4/L7, Round-Robin, Konsistentes Hashing, Health Checks |
+| 3 | [Caching](concepts/caching.md) | Redis, CDN, Browser-Cache, Cache-Strategien, Invalidierung |
+| 4 | [Datenbankdesign](concepts/database-design.md) | SQL vs NoSQL, Indexierung, Sharding, Replikation, ACID |
+| 5 | [Message Queues](concepts/message-queues.md) | Kafka, RabbitMQ, Event-Driven Architecture, Exactly-Once |
+
+### Konzeptkarte
 
 ```
                         ┌─────────────────────────┐
@@ -83,23 +83,23 @@ Foundation knowledge you need before tackling system design questions.
 
 ---
 
-## System Designs
+## Systemdesigns
 
-Complete end-to-end solutions for popular system design interview questions.
+Vollständige End-to-End-Lösungen für beliebte System-Design-Interviewfragen.
 
-| # | Design | Difficulty | Key Concepts |
-|---|--------|------------|--------------|
-| 1 | [URL Shortener](designs/url-shortener.md) | ⭐⭐ | Base62 encoding, hashing, redirect, analytics |
-| 2 | [Chat System](designs/chat-system.md) | ⭐⭐⭐ | WebSocket, message queue, presence, delivery |
-| 3 | [News Feed](designs/news-feed.md) | ⭐⭐⭐ | Fan-out, ranking, timeline, social graph |
-| 4 | [Search Engine](designs/search-engine.md) | ⭐⭐⭐⭐ | Inverted index, crawling, ranking, NLP |
-| 5 | [Distributed Cache](designs/distributed-cache.md) | ⭐⭐⭐⭐ | Consistent hashing, replication, eviction |
+| # | Design | Schwierigkeit | Kernkonzepte |
+|---|--------|---------------|-------------|
+| 1 | [URL-Verkürzer](designs/url-shortener.md) | ⭐⭐ | Base62-Kodierung, Hashing, Redirect, Analytics |
+| 2 | [Chat-System](designs/chat-system.md) | ⭐⭐⭐ | WebSocket, Message Queue, Presence, Delivery |
+| 3 | [Newsfeed](designs/news-feed.md) | ⭐⭐⭐ | Fan-out, Ranking, Timeline, Social Graph |
+| 4 | [Suchmaschine](designs/search-engine.md) | ⭐⭐⭐⭐ | Invertierter Index, Crawling, Ranking, NLP |
+| 5 | [Verteilter Cache](designs/distributed-cache.md) | ⭐⭐⭐⭐ | Konsistentes Hashing, Replikation, Eviction |
 
 ---
 
-## How to Use
+## Verwendung
 
-### For Interview Preparation
+### Zur Interviewvorbereitung
 
 ```
 Step 1: Read concepts/fundamentals.md to build your foundation
@@ -109,7 +109,7 @@ Step 4: Time yourself — aim for 45 minutes per design
 Step 5: Review trade-offs and practice explaining decisions
 ```
 
-### For Interview Day
+### Am Interviewtag
 
 ```
 ┌─────────────────────────────────────────────────┐
@@ -129,9 +129,9 @@ Step 5: Review trade-offs and practice explaining decisions
 └─────────────────────────────────────────────────┘
 ```
 
-### The RESHADED Framework
+### Das RESHADED-Framework
 
-Each design in this guide follows the **RESHADED** framework:
+Jedes Design in diesem Leitfaden folgt dem **RESHADED**-Framework:
 
 ```
 R - Requirements       Requirements analysis
@@ -148,33 +148,33 @@ D - Distinctive component  Differentiating component
 
 ## Roadmap
 
-- [x] 5 core concept files
-- [x] 5 complete system designs
-- [x] Bilingual content (English + Chinese)
-- [ ] 5 more designs (Rate Limiter, Notification System, Video Streaming, Web Crawler, Key-Value Store)
-- [ ] Anki flashcards for spaced repetition
-- [ ] Interactive diagrams
+- [x] 5 Kernkonzept-Dateien
+- [x] 5 vollständige Systemdesigns
+- [x] Zweisprachiger Inhalt (Englisch + Chinesisch)
+- [ ] 5 weitere Designs (Rate Limiter, Benachrichtigungssystem, Video-Streaming, Web Crawler, Key-Value Store)
+- [ ] Anki-Karteikarten für verteiltes Lernen
+- [ ] Interaktive Diagramme
 
 ---
 
-## Contribute
+## Mitwirken
 
-We welcome contributions! See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
-
----
-
-## Star History
-
-If you find this guide helpful, please give it a star!
+Wir begrüßen Beiträge! Siehe [CONTRIBUTING.md](CONTRIBUTING.md) für Details.
 
 ---
 
-## License
+## Stern-Verlauf
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+Wenn Ihnen dieser Leitfaden geholfen hat, vergeben Sie bitte einen Stern!
+
+---
+
+## Lizenz
+
+Dieses Projekt steht unter der MIT-Lizenz — siehe die Datei [LICENSE](LICENSE) für Details.
 
 ---
 
 <p align="center">
-  Made with ❤️ by <a href="https://github.com/liangzhengtao">liangzhengtao</a>
+  Mit ❤️ erstellt von <a href="https://github.com/liangzhengtao">liangzhengtao</a>
 </p>
